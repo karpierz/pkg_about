@@ -1,6 +1,6 @@
-# Copyright (c) 2020-2024 Adam Karpierz
+# Copyright (c) 2020 Adam Karpierz
 # Licensed under the zlib/libpng License
-# https://opensource.org/licenses/Zlib
+# https://opensource.org/license/zlib
 
 from .__about__ import * ; del __about__  # noqa
 
