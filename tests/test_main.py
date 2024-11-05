@@ -11,7 +11,7 @@ class MainTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.version_expected = "1.1.8"
+        cls.version_expected = "1.2.0"
         version_parts = cls.version_expected.split(".")
         cls.version_major_expected = int(version_parts[0])
         cls.version_minor_expected = int(version_parts[1])
@@ -35,7 +35,7 @@ class MainTestCase(unittest.TestCase):
         self.assertEqual(__maintainer_email__, "adam@karpierz.net")
         self.assertEqual(__license__,
                          "zlib/libpng License ; https://opensource.org/license/zlib")
-        self.assertIsNone(__copyright__)
+        self.assertEqual(__copyright__, "Copyright (c) 2020-2024 Adam Karpierz")
 
     def test_about_from_setup(self):
         pkg_about.about_from_setup(Path(__file__).resolve().parent.parent)

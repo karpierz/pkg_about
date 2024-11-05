@@ -7,7 +7,7 @@ __all__ = ('about', 'about_from_setup')
 def about(package=None):
     import sys
     from packaging.version import parse as parse_version
-    from importlib.metadata import metadata as get_metadata
+    from importlib_metadata import metadata as get_metadata
     pkg_globals = sys._getframe(1).f_globals
     pkg_globals.pop("__builtins__", None)
     pkg_globals.pop("__cached__",   None)
@@ -46,7 +46,7 @@ def about(package=None):
         __maintainer__       = metadata.get("Maintainer"),
         __maintainer_email__ = metadata.get("Maintainer-email"),
         __license__      = metadata.get("License"),
-        __copyright__    = metadata.get("Copyright")  # for now is None
+        __copyright__    = __get_copyright(metadata.get("Description"))
     )
 
     pkg_globals.update(pkg_metadata)
@@ -73,6 +73,7 @@ def about_from_setup(package_path=None):
                     if package_path is None else Path(package_path))
     pyproject_path = package_path/"pyproject.toml"
     setup_cfg_path = package_path/"setup.cfg"
+    readme_path    = package_path/"README.rst"
     metadata = {}
     if setup_cfg_path.exists():
         metadata.update(read_setupcfg(setup_cfg_path,
@@ -91,7 +92,8 @@ def about_from_setup(package_path=None):
     copyr_patt = re.compile(r"^\s*__copyright__\s*=\s*")
     about_py = package_path.glob("src/**/__about__.py")
     version = parse_version(metadata["version"])
-    release_levels, get = __release_levels, __get
+    release_levels = __release_levels
+    get, get_copyright = __get, __get_copyright
 
     class about:
         __slots__  = ()
@@ -132,6 +134,8 @@ def about_from_setup(package_path=None):
                                    (next(about_py).open("rt", encoding="utf-8")
                                     if about_py else ())
                                    if copyr_patt.split(line)[1:]), "None"))
+        if __copyright__ is None and readme_path.exists():
+            __copyright__ = get_copyright(readme_path.read_text(encoding="utf-8"))
 
     pkg_globals["about"] = about
     pkg_globals.setdefault("__all__", [])
@@ -148,6 +152,29 @@ def __get(mdata, *keys):
             return None
         mdata = mdata[key]
     return mdata
+
+
+def __get_copyright(description):
+    from docutils.core import publish_doctree
+    from docutils import nodes
+    copyr = None
+    if description is not None:
+        document = publish_doctree(description)
+        subst_name = document.substitution_names.get("copyright")
+        substitution = document.substitution_defs.get(subst_name)
+        if substitution is not None:
+            copyr = substitution.astext()
+        else:
+            # Try to get from 'License' section
+            section = document.ids.get(document.nameids.get("license"))
+            if section is not None:
+                lblock = section.next_node(nodes.line_block)
+                if lblock is not None:
+                    copyr = next((line for _ in lblock.findall(nodes.line)
+                                  if ((line := _.astext().lstrip()).lower()
+                                      .startswith("copyright"))), None)
+    return copyr
+
 
 
 __release_levels = dict(
