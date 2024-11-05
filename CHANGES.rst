@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0.4 (2022-01-10)
+------------------
+- Drop support for Python 3.6.
+- Copyright year update.
+- Setup update.
+
 1.0.3 (2021-10-14)
 ------------------
 - Setup update.
