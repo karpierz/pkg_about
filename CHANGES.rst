@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.7 (2024-07-15)
+------------------
+- Setup (dependencies) update.
+
 1.1.6 (2024-06-20)
 ------------------
 - Setup (dependencies) update.

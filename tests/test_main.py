@@ -1,6 +1,5 @@
 # Copyright (c) 2020 Adam Karpierz
-# Licensed under the zlib/libpng License
-# https://opensource.org/license/zlib
+# SPDX-License-Identifier: Zlib
 
 import unittest
 from pathlib import Path
@@ -12,7 +11,7 @@ class MainTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.version_expected = "1.1.6"
+        cls.version_expected = "1.1.7"
         version_parts = cls.version_expected.split(".")
         cls.version_major_expected = int(version_parts[0])
         cls.version_minor_expected = int(version_parts[1])
