@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0.6 (2022-07-24)
+------------------
+- Add __author_email__ (as alias of __email__).
+- Add __maintainer_email__.
+- Setup update (currently based mainly on pyproject.toml).
+
 1.0.5 (2022-07-20)
 ------------------
 - Add about_from_setup() (to use e.g. in docs.conf.py).

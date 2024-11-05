@@ -40,8 +40,10 @@ def about(package=None):
                             project_urls.get("Homepage") or
                             project_urls.get("Home")),
         __author__       = metadata.get("Author"),
-        __maintainer__   = metadata.get("Maintainer"),
         __email__        = metadata.get("Author-email"),
+        __author_email__ = metadata.get("Author-email"),
+        __maintainer__       = metadata.get("Maintainer"),
+        __maintainer_email__ = metadata.get("Maintainer-email"),
         __license__      = metadata.get("License"),
         __copyright__    = metadata.get("Copyright")  # for now is None
     )
@@ -108,10 +110,14 @@ def about_from_setup(package_path=None):
                             get(metadata, "url"))
         __author__       = (get(metadata, "authors", 0, "name") or
                             get(metadata, "author"))
-        __maintainer__   = (get(metadata, "maintainers", 0, "name") or
-                            get(metadata, "maintainer"))
         __email__        = (get(metadata, "authors", 0, "email") or
                             get(metadata, "author_email"))
+        __author_email__ = (get(metadata, "authors", 0, "email") or
+                            get(metadata, "author_email"))
+        __maintainer__       = (get(metadata, "maintainers", 0, "name") or
+                                get(metadata, "maintainer"))
+        __maintainer_email__ = (get(metadata, "maintainers", 0, "email") or
+                                get(metadata, "maintainer_email"))
         __license__      = (get(metadata, "license", "text") or
                             get(metadata, "license"))
         __copyright__    = eval(next((copyr_patt.split(line)[1] for line in
