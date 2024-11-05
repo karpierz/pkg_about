@@ -6,11 +6,11 @@ Shares Python package metadata at runtime.
 Overview
 ========
 
+TBD...
+
 `PyPI record`_.
 
 `Documentation`_.
-
-TBD...
 
 Usage
 -----

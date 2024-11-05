@@ -8,7 +8,7 @@ requires = ['setuptools>=63.2.0', 'wheel>=0.37.1', 'packaging>=21.3.0', 'tox>=3.
 
 [project]
 name        = 'pkg_about'
-version     = '1.0.6'
+version     = '1.0.7'
 description = 'Shares Python package metadata at runtime.'
 license = { text = 'zlib/libpng License ; https://opensource.org/licenses/Zlib' }
 authors = [
@@ -64,23 +64,20 @@ test = [
     'deepdiff>=5.8.1',
 ]
 [project.urls]
-'Homepage'      = 'https://pypi.org/project/pkg_about/'
-'Documentation' = 'https://pkg-about.readthedocs.io/'
-'Download'      = 'https://pypi.org/project/pkg_about/'
-'Source'        = 'https://github.com/karpierz/pkg_about'
-'Issues'        = 'https://github.com/karpierz/pkg_about/issues'
+Homepage      = 'https://pypi.org/project/pkg_about/'
+Documentation = 'https://pkg-about.readthedocs.io/'
+Download      = 'https://pypi.org/project/pkg_about/'
+Source        = 'https://github.com/karpierz/pkg_about'
+Issues        = 'https://github.com/karpierz/pkg_about/issues'
 
 [project.scripts]
-#sample-cli = "pkg_about:main_cli"
+#pkg_about = 'pkg_about.__main__:main'
 
 [project.gui-scripts]
-#sample-gui = "pkg_about:main_gui"
+#pkg_about-gui = 'pkg_about:main_gui'
 
-[project.entry-points."pkg_about.magical"]
-#epoint = "pkg_about:main_epoint"
-
-[tool.distutils.bdist_wheel]
-#universal = false # false is default
+#[project.entry-points.'pkg_about.magical']
+#epoint = 'pkg_about:main_epoint'
 
 [tool.setuptools.dynamic]
 readme = { file = ['README.rst', 'CHANGES.rst'], content-type = 'text/x-rst; charset=UTF-8' }
@@ -100,7 +97,8 @@ where = ['src']
 #'pkg_about.tests' = 'tests'
 
 [tool.setuptools.package-data]
-pkg_about = []
+pkg_about = [
+]
 
 [tool.coverage.run]
 source = [
@@ -142,7 +140,7 @@ ignore = ['E126','E203','E221','E251','E302','E701','E702','E731',
           'E122','E127','E128','E222','E272','E241','E266','E226','E704',
           'D100','D101','D102','D103','D104','D400','D401','D202',
           'N806','N802','N803','N801',
-          'I100']
+          'I100','W503']
 # (e.g. 'E4','W') default: 'E121','E123','126','226','E24','704'
 #select =
 #select = ['E','W','F','N','I']
