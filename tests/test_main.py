@@ -11,7 +11,7 @@ class MainTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.version_expected = "1.1.7"
+        cls.version_expected = "1.1.8"
         version_parts = cls.version_expected.split(".")
         cls.version_major_expected = int(version_parts[0])
         cls.version_minor_expected = int(version_parts[1])
