@@ -1,6 +1,20 @@
 Changelog
 =========
 
+1.1.0 (2022-12-15)
+------------------
+- Add support for Python 3.12
+- Drop support for Python 3.7
+- Add support for PyPy 3.10
+- Drop support for PyPy 3.7 and 3.8
+- Bugfix for parsing metadata's "Project-URL".
+- Bugfix of about_from_setup() for __version_info__.
+- | Enhancement" the 'package_path' parameter of the about_from_setup()
+  | can now be of type string or Path.
+- Bugfix of about_from_setup() for parsing author and maintainer emails.
+- Copyright year update.
+- Added a trivial unit test.
+
 1.0.8 (2022-10-18)
 ------------------
 - Tox configuration has been moved to pyproject.toml
@@ -24,7 +38,7 @@ Changelog
 
 1.0.4 (2022-01-10)
 ------------------
-- Drop support for Python 3.6.
+- Drop support for Python 3.6
 - Copyright year update.
 - Setup update.
 
