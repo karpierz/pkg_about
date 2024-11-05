@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.6 (2024-06-20)
+------------------
+- Setup (dependencies) update.
+
 1.1.5 (2024-01-26)
 ------------------
 - Setup update (now based on tox >= 4.0).
