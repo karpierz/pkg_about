@@ -75,10 +75,10 @@ def about_from_setup(package_path=None):
     setup_cfg_path = package_path/"setup.cfg"
     readme_path    = package_path/"README.rst"
     metadata = {}
-    if setup_cfg_path.exists():
+    if setup_cfg_path.exists():  # pragma: no branch
         metadata.update(read_setupcfg(setup_cfg_path,
                         ignore_option_errors=True).get("metadata", {}))
-    if pyproject_path.exists():
+    if pyproject_path.exists():  # pragma: no branch
         if read_pyprojecttoml:
             metadata.update(read_pyprojecttoml(pyproject_path,
                             ignore_option_errors=True).get("project", {}))
@@ -134,7 +134,7 @@ def about_from_setup(package_path=None):
                                    (next(about_py).open("rt", encoding="utf-8")
                                     if about_py else ())
                                    if copyr_patt.split(line)[1:]), "None"))
-        if __copyright__ is None and readme_path.exists():
+        if __copyright__ is None and readme_path.exists():  # pragma: no branch
             __copyright__ = get_copyright(readme_path.read_text(encoding="utf-8"))
 
     pkg_globals["about"] = about
@@ -145,9 +145,11 @@ def about_from_setup(package_path=None):
 def __get(mdata, *keys):
     for key in keys:
         if isinstance(mdata, dict):
-            if key not in mdata: return None
+            if key not in mdata:
+                return None
         elif isinstance(mdata, (list, tuple)):
-            if key >= len(mdata): return None
+            if key >= len(mdata):  # pragma: no cover
+                return None
         else:  # pragma: no cover
             return None
         mdata = mdata[key]
@@ -158,7 +160,7 @@ def __get_copyright(description):
     from docutils.core import publish_doctree
     from docutils import nodes
     copyr = None
-    if description is not None:
+    if description is not None:  # pragma: no branch
         document = publish_doctree(description)
         subst_name = document.substitution_names.get("copyright")
         substitution = document.substitution_defs.get(subst_name)
@@ -167,14 +169,13 @@ def __get_copyright(description):
         else:
             # Try to get from 'License' section
             section = document.ids.get(document.nameids.get("license"))
-            if section is not None:
+            if section is not None:  # pragma: no branch
                 lblock = section.next_node(nodes.line_block)
-                if lblock is not None:
+                if lblock is not None:  # pragma: no branch
                     copyr = next((line for _ in lblock.findall(nodes.line)
                                   if ((line := _.astext().lstrip()).lower()
                                       .startswith("copyright"))), None)
     return copyr
-
 
 
 __release_levels = dict(

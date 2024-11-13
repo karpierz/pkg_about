@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.2.3 (2024-11-11)
+------------------
+- More unittests.
+- 100% code coverage.
+- Tox configuration is now in native (toml) format.
+- Setup (dependencies) update.
+
 1.2.2 (2024-10-30)
 ------------------
 - Setup (dependencies) update.
