@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Zlib
 
 import unittest
+import sys
 from pathlib import Path
 import textwrap
 
@@ -13,7 +14,14 @@ class MainTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.version_expected = "1.2.3"
+        pyproject_path = Path(__file__).resolve().parent.parent/"pyproject.toml"
+        if sys.version_info >= (3, 11):
+            import tomllib
+        else:
+            import tomli as tomllib
+        with pyproject_path.open("rb") as file:
+            metadata = tomllib.load(file).get("project", {})
+        cls.version_expected = metadata["version"]
         version_parts = cls.version_expected.split(".")
         cls.version_major_expected = int(version_parts[0])
         cls.version_minor_expected = int(version_parts[1])
