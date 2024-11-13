@@ -3,11 +3,11 @@
 
 [build-system]
 build-backend = 'setuptools.build_meta'
-requires = ['setuptools>=75.4.0', 'packaging>=24.2.0', 'tox>=4.23.2']
+requires = ['setuptools>=75.5.0', 'packaging>=24.2.0', 'tox>=4.23.2']
 
 [project]
 name        = 'pkg_about'
-version     = '1.2.3'
+version     = '1.2.4'
 description = 'Shares Python package metadata at runtime.'
 urls.Homepage      = 'https://pypi.org/project/pkg_about/'
 urls.Documentation = 'https://pkg-about.readthedocs.io/'
@@ -45,7 +45,7 @@ classifiers = [
 requires-python = '>=3.9.0,<4.0.0'
 dependencies = [
     # mandatory
-    'setuptools>=75.4.0',
+    'setuptools>=75.5.0',
     'packaging>=24.2.0',
     'importlib-metadata>=8.5.0',
     'tomli>=2.1.0 ; python_version < "3.11"',
@@ -178,12 +178,11 @@ deploy = ['py39','py310','py311','py312','py313', 'pypy39','pypy310', 'docs', 'b
 base_python = ['python3.12']
 deps = [
     'pip>=24.3.1',
-    'setuptools>=75.4.0',
+    'setuptools>=75.5.0',
 ]
 package_subdir = 'pkg_about'
 
 [tool.tox.env_run_base]
-pass_env = ['JAVA_HOME']
 set_env.PYTHONDONTWRITEBYTECODE = '1'
 commands = [
     ['{env_python}','--version'],
