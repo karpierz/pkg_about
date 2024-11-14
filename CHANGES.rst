@@ -4,7 +4,8 @@ Changelog
 1.2.5 (2024-11-13)
 ------------------
 - More unittests.
-- 100% code coverage and lint.
+- 100% code coverage.
+- 100% code linting.
 - Tox configuration is now in native (toml) format.
 - Setup (dependencies) update.
 
