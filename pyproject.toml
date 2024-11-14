@@ -9,9 +9,9 @@ requires = ['setuptools>=75.5.0', 'packaging>=24.2.0', 'tox>=4.23.2']
 name        = 'pkg_about'
 version     = '1.2.5'
 description = 'Shares Python package metadata at runtime.'
-urls.Homepage      = 'https://pypi.org/project/pkg_about/'
+urls.Homepage      = 'https://pypi.org/project/pkg-about/'
 urls.Documentation = 'https://pkg-about.readthedocs.io/'
-urls.Download      = 'https://pypi.org/project/pkg_about/'
+urls.Download      = 'https://pypi.org/project/pkg-about/'
 urls.Source        = 'https://github.com/karpierz/pkg_about'
 urls.Issues        = 'https://github.com/karpierz/pkg_about/issues'
 license = { text = 'zlib/libpng License ; https://opensource.org/license/zlib' }
@@ -157,7 +157,7 @@ count = true
 #
 
 [tool.tox]  # pkg_about
-env_list = ['py39','py310','py311','py312','py313', 'pypy39','pypy310', 'docs']
+env_list = [{replace='ref',of=['tool','tox','labels','py'],extend=true}, 'coverage', 'lint', 'docs']
 min_version = '4.23.2'
 skip_missing_interpreters = true
 requires = [
@@ -171,8 +171,8 @@ prepare  = ['prepare']
 coverage = ['coverage']
 lint = ['lint']
 docs = ['docs']
-build  = ['py39','py310','py311','py312','py313', 'pypy39','pypy310', 'docs', 'build']
-deploy = ['py39','py310','py311','py312','py313', 'pypy39','pypy310', 'docs', 'build', 'publish']
+build  = [{replace='ref',of=['tool','tox','labels','py'],extend=true}, 'docs', 'build']
+deploy = [{replace='ref',of=['tool','tox','labels','build'],extend=true}, 'publish']
 
 [tool.tox._.base]
 base_python = ['python3.12']
@@ -236,7 +236,7 @@ deps = [
 ]
 
 [tool.tox.env.'build']
-depends = ['py39','py310','py311','py312','py313', 'pypy39','pypy310', 'docs']
+depends = [{replace='ref',of=['tool','tox','labels','py'],extend=true}, 'docs']
 base_python = {replace='ref',of=['tool','tox','_','base','base_python']}
 commands = [
     ['{env_python}','-W','ignore','-c','from setuptools import setup ; setup()','--quiet','sdist','--formats=zip'],

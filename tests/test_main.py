@@ -17,7 +17,7 @@ class MainTestCase(unittest.TestCase):
         pyproject_path = Path(__file__).resolve().parent.parent/"pyproject.toml"
         if sys.version_info >= (3, 11):
             import tomllib
-        else:
+        else:  # pragma: no cover
             import tomli as tomllib
         with pyproject_path.open("rb") as file:
             metadata = tomllib.load(file).get("project", {})

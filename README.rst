@@ -86,5 +86,5 @@ Authors
 .. |copyright| replace:: Copyright (c) 2020-2024 Adam Karpierz
 .. |respository| replace:: https://github.com/karpierz/pkg_about.git
 .. _Development page: https://github.com/karpierz/pkg_about
-.. _PyPI record: https://pypi.org/project/pkg_about/
+.. _PyPI record: https://pypi.org/project/pkg-about/
 .. _Documentation: https://pkg-about.readthedocs.io/
