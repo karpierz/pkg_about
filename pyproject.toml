@@ -7,7 +7,7 @@ requires = ['setuptools>=75.5.0', 'packaging>=24.2.0', 'tox>=4.23.2']
 
 [project]
 name        = 'pkg_about'
-version     = '1.2.4'
+version     = '1.2.5'
 description = 'Shares Python package metadata at runtime.'
 urls.Homepage      = 'https://pypi.org/project/pkg_about/'
 urls.Documentation = 'https://pkg-about.readthedocs.io/'
@@ -186,7 +186,7 @@ package_subdir = 'pkg_about'
 set_env.PYTHONDONTWRITEBYTECODE = '1'
 commands = [
     ['{env_python}','--version'],
-    ['{env_python}','-m','tests',{replace="posargs",extend=true}],
+    ['{env_python}','-m','tests',{replace='posargs',extend=true}],
 ]
 extras = ['test']
 deps = [
