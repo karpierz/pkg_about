@@ -3,11 +3,11 @@
 
 [build-system]
 build-backend = 'setuptools.build_meta'
-requires = ['setuptools>=75.5.0', 'packaging>=24.2.0', 'tox>=4.23.2']
+requires = ['setuptools>=75.6.0', 'packaging>=24.2.0', 'tox>=4.23.2']
 
 [project]
 name        = 'pkg_about'
-version     = '1.2.5'
+version     = '1.2.6'
 description = 'Shares Python package metadata at runtime.'
 urls.Homepage      = 'https://pypi.org/project/pkg-about/'
 urls.Documentation = 'https://pkg-about.readthedocs.io/'
@@ -45,10 +45,10 @@ classifiers = [
 requires-python = '>=3.9.0,<4.0.0'
 dependencies = [
     # mandatory
-    'setuptools>=75.5.0',
+    'setuptools>=75.6.0',
     'packaging>=24.2.0',
     'importlib-metadata>=8.5.0',
-    'tomli>=2.1.0 ; python_version < "3.11"',
+    'tomli>=2.2.1 ; python_version < "3.11"',
     'docutils>=0.21.2',
     # others
 ]
@@ -162,7 +162,7 @@ min_version = '4.23.2'
 skip_missing_interpreters = true
 requires = [
     {replace='ref',of=['tool','tox','_','base','deps'],extend=true},
-    'virtualenv>=20.27.1',
+    'virtualenv>=20.28.0',
     'tox-tags>=0.2.0',
 ]
 [tool.tox.labels]
@@ -178,7 +178,7 @@ deploy = [{replace='ref',of=['tool','tox','labels','build'],extend=true}, 'publi
 base_python = ['python3.12']
 deps = [
     'pip>=24.3.1',
-    'setuptools>=75.5.0',
+    'setuptools>=75.6.0',
 ]
 package_subdir = 'pkg_about'
 
@@ -216,7 +216,7 @@ commands = [
 ]
 deps = [
     {replace='ref',of=['tool','tox','env_run_base','deps'],extend=true},
-    'coverage>=7.6.4',
+    'coverage>=7.6.9',
     'covdefaults>=2.3.0',
     'diff-cover>=9.2.0',
 ]
@@ -239,14 +239,14 @@ deps = [
 depends = [{replace='ref',of=['tool','tox','labels','py'],extend=true}, 'docs']
 base_python = {replace='ref',of=['tool','tox','_','base','base_python']}
 commands = [
-    ['{env_python}','-W','ignore','-c','from setuptools import setup ; setup()','--quiet','sdist','--formats=zip'],
+    ['{env_python}','-W','ignore','-c','from setuptools import setup ; setup()','--quiet','sdist','--formats=gztar'],
     ['{env_python}','-W','ignore','-c','from setuptools import setup ; setup()','--quiet','bdist_wheel'],
     # check out for PyPi
     ['{env_python}','-m','twine','check','dist/*'],
 ]
 deps = [
     {replace='ref',of=['tool','tox','env_run_base','deps'],extend=true},
-    'twine>=5.1.1',
+    'twine>=6.0.1',
 ]
 
 [tool.tox.env.'publish']
@@ -259,7 +259,7 @@ commands = [
 ]
 extras = []
 deps = [
-    'twine>=5.1.1',
+    'twine>=6.0.1',
 ]
 
 [tool.tox.env.'lint']
