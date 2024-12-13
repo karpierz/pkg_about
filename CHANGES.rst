@@ -3,7 +3,7 @@ Changelog
 
 1.2.6 (2024-12-13)
 ------------------
-- Source distribution (*.tar.gz now) is compliant with PEP-0625.
+- Source distribution (\*.tar.gz now) is compliant with PEP-0625.
 - Setup (dependencies) update.
 
 1.2.5 (2024-11-13)
