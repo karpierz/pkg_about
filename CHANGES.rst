@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.2.7 (2025-01-20)
+------------------
+- Copyright year update.
+- Setup (dependencies) update.
+
 1.2.6 (2024-12-13)
 ------------------
 - Source distribution (\*.tar.gz now) is compliant with PEP-0625.
