@@ -3,11 +3,11 @@
 
 [build-system]
 build-backend = 'setuptools.build_meta'
-requires = ['setuptools>=75.8.0', 'packaging>=24.2.0', 'tox>=4.23.2']
+requires = ['setuptools>=75.8.0', 'packaging>=24.2.0', 'tox>=4.24.1']
 
 [project]
 name        = 'pkg_about'
-version     = '1.2.7'
+version     = '1.2.8'
 description = 'Shares Python package metadata at runtime.'
 urls.Homepage      = 'https://pypi.org/project/pkg-about/'
 urls.Documentation = 'https://pkg-about.readthedocs.io/'
@@ -47,7 +47,7 @@ dependencies = [
     # mandatory
     'setuptools>=75.8.0',
     'packaging>=24.2.0',
-    'importlib-metadata>=8.5.0',
+    'importlib-metadata>=8.6.1',
     'tomli>=2.2.1 ; python_version < "3.11"',
     'docutils>=0.21.2',
     # others
@@ -159,7 +159,7 @@ count = true
 
 [tool.tox]  # pkg_about
 env_list = [{replace='ref',of=['tool','tox','labels','py'],extend=true}, 'coverage', 'lint', 'docs']
-min_version = '4.23.2'
+min_version = '4.24.1'
 skip_missing_interpreters = true
 requires = [
     {replace='ref',of=['tool','tox','_','base','deps'],extend=true},
@@ -247,7 +247,7 @@ commands = [
 ]
 deps = [
     {replace='ref',of=['tool','tox','env_run_base','deps'],extend=true},
-    'twine>=6.0.1',
+    'twine>=6.1.0',
 ]
 
 [tool.tox.env.'publish']
@@ -260,7 +260,7 @@ commands = [
 ]
 extras = []
 deps = [
-    'twine>=6.0.1',
+    'twine>=6.1.0',
 ]
 
 [tool.tox.env.'lint']
