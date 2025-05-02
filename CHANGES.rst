@@ -1,12 +1,18 @@
 Changelog
 =========
 
-1.3.0 (2025-04-28)
+1.3.1 (2025-05-01)
 ------------------
 - Add support for Python 3.14
 - Drop support for Python 3.9 (due to compatibility issues).
 - Update readthedocs's python to version 3.13
 - Update tox's base_python to version 3.13
+- | Remove the ability to obtain __copyright__ from the README.rst or
+  | __about__.py due to significant compatibility issue(s) (because the
+  | 'Copyright' field is not a member of the package metadata at all).
+  | For now, the __copyright__ field is the same as __author__ field
+  | (which is always obtained from the package metadata).
+- Remove dependencies on docutils.
 - Setup (dependencies) update.
 
 1.2.11 (2025-03-20)
