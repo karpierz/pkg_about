@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.3.4 (2025-05-15)
+1.3.5 (2025-05-15)
 ------------------
 - | The 'License-Expression' metadata field takes precedence over the
   | 'License' metadata field.
+- The distribution is now created using 'build' instead of 'setuptools'.
 - Setup (dependencies) update (due to regressions in tox and setuptools).
 
 1.3.3 (2025-05-04)
@@ -95,9 +96,9 @@ Changelog
 - Drop support for Python 3.7
 - Add support for PyPy 3.10
 - Drop support for PyPy 3.7 and 3.8
-- Bugfix for parsing metadata's "Project-URL".
+- Bugfix for parsing metadata's 'Project-URL'.
 - Bugfix of about_from_setup() for __version_info__.
-- | Enhancement" the 'package_path' parameter of the about_from_setup()
+- | Enhancement: the 'package_path' parameter of the about_from_setup()
   | can now be of type string or Path.
 - Bugfix of about_from_setup() for parsing author and maintainer emails.
 - Copyright year update.
