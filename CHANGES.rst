@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.3.4 (2025-05-15)
+------------------
+- | The 'License-Expression' metadata field takes precedence over the
+  | 'License' metadata field.
+- Setup (dependencies) update (due to regressions in tox and setuptools).
+
 1.3.3 (2025-05-04)
 ------------------
 - Setup (dependencies) update.
