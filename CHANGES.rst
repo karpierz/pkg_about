@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.3.7 (2025-07-07)
+------------------
+- Use standard importlib.metadata instead of importlib-metadata.
+- Setup (dependencies) update.
+
 1.3.6 (2025-06-11)
 ------------------
 - Setup (dependencies) update.
