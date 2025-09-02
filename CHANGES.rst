@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.5.0 (2025-09-01)
+------------------
+- | Now about_from_setup() returns an instance of the 'about' class
+  | (but backward compatibility is preserved).
+- Making the package typed.
+- Setup (dependencies) update.
+
 1.3.7 (2025-07-07)
 ------------------
 - Use standard importlib.metadata instead of importlib-metadata.
