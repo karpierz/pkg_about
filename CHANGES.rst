@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.0.1 (2025-09-08)
+------------------
+- | Workaround for the tox error when pyproject.toml and setup.cfg
+  | files coexist.
+- Mark the package as typed.
+- Setup (dependencies) update.
+
 1.5.0 (2025-09-01)
 ------------------
 - | Now about_from_setup() returns an instance of the 'about' class
