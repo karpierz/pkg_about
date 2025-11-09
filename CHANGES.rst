@@ -1,6 +1,19 @@
 Changelog
 =========
 
+2.0.5 (2025-11-08)
+------------------
+- | Now about() and about_from_setup() return an instance of the adict
+  | dictionary with about info (but backward compatibility is preserved).
+- | Now the __version_info__ field has a namedtuple type 'version_info'
+  | instead of a class (but backward compatibility is preserved).
+- | Workaround for the tox error when pyproject.toml and setup.cfg
+  | files coexist.
+- Better parsing of newer metadata versions.
+- Mark the package as typed.
+- Add tox's tool.tox.env.cleanup testenv.
+- Setup (dependencies) update.
+
 1.5.0 (2025-09-01)
 ------------------
 - | Now about_from_setup() returns an instance of the 'about' class
