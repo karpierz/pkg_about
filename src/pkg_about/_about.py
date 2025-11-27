@@ -10,7 +10,7 @@ from collections import namedtuple
 from functools import partial
 from email.utils import getaddresses, parseaddr
 
-if sys.version_info >= (3, 12):
+if sys.version_info >= (3, 13):
     getaddresses = partial(getaddresses, strict=False)
     parseaddr    = partial(parseaddr,    strict=False)
 else: pass  # pragma: no cover
