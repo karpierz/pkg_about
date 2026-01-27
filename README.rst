@@ -1,12 +1,18 @@
 pkg_about
 =========
 
-Shares Python package metadata at runtime.
+Unified access to Python package metadata at runtime.
 
 Overview
 ========
 
-TBD...
+Provides a unified way to retrieve Python package metadata at runtime,
+regardless of the build backend or project structure.
+
+| **about(package: str)** - retrieves metadata for the given package
+| **about()** - retrieves metadata for the current package
+| **about_from_setup()** - retrieves metadata from pyproject.toml
+                           and/or setup.cfg
 
 `PyPI record`_.
 
@@ -15,7 +21,12 @@ TBD...
 Usage
 -----
 
-TBD...
+.. code:: python
+
+  >>> import pkg_about
+  >>> pkg_about.about("pip")
+  >>> __uri__ == "https://pip.pypa.io/"
+  True
 
 Installation
 ============
@@ -26,10 +37,9 @@ Prerequisites:
 
   * https://www.python.org/
 
-+ pip and setuptools
++ pip
 
   * https://pypi.org/project/pip/
-  * https://pypi.org/project/setuptools/
 
 To install run:
 
@@ -42,9 +52,9 @@ Development
 
 Prerequisites:
 
-+ Development is strictly based on *tox*. To install it run::
++ Development is strictly based on *nox*. To install it run::
 
-    python -m pip install --upgrade tox
+    python -m pip install --upgrade nox
 
 Visit `Development page`_.
 
@@ -81,10 +91,21 @@ Authors
 
 * Adam Karpierz <adam@karpierz.net>
 
+Sponsoring
+==========
+
+| If you would like to sponsor the development of this project, your contribution
+  is greatly appreciated.
+| As I am now retired, any support helps me dedicate more time to maintaining and
+  improving this work.
+
+`Donate`_
+
 .. |package| replace:: pkg_about
 .. |package_bold| replace:: **pkg_about**
-.. |copyright| replace:: Copyright (c) 2020-2025 Adam Karpierz
-.. |respository| replace:: https://github.com/karpierz/pkg_about.git
+.. |copyright| replace:: Copyright (c) 2020-2026 Adam Karpierz
+.. |respository| replace:: https://github.com/karpierz/pkg_about
 .. _Development page: https://github.com/karpierz/pkg_about
 .. _PyPI record: https://pypi.org/project/pkg-about/
-.. _Documentation: https://pkg-about.readthedocs.io/
+.. _Documentation: https://karpierz.github.io/pkg_about/
+.. _Donate: https://www.paypal.com/donate/?hosted_button_id=FX8L7CJUGLW7S
