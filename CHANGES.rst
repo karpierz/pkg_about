@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.2.0 (2026-02-13)
+------------------
+- Added support for Python 3.15
+- Setup update (mainly dependencies).
+
 2.1.2 (2026-01-27)
 ------------------
 - | Now about() and about_from_setup() return an instance of the 'adict'
